@@ -1,0 +1,11 @@
+ 	.syntax unified
+ 	.cpu cortex-m3
+ 	.thumb
+ 	.align 2
+ 	.global	pdm
+ 	.thumb_func
+
+pdm:
+@ write the code for pdm(CM,M,index) here
+
+	BX	LR

@@ -1,0 +1,20 @@
+ 	.syntax unified
+ 	.cpu cortex-m3
+ 	.thumb
+ 	.align 2
+ 	.global	pdm
+ 	.thumb_func
+four: .word 4
+pdm:
+@ write the code for pdm(CM,M,index) here
+	MUL R4, R2, R3 @Calculate initial offset(without considering word length)
+	MUL R4, four @offset when considering word length of 4 bytes
+	ADD R0, R4  @apply offset
+	MOV R5, 0 @initialize sum to 0
+loop:
+	LDR R4, [R0], 4 @Load values with post-indexed addressing
+	ADD R5, R4  @Calculating the denominator of the PD function
+	SUBS R2, 1 @R2 stores number of loops left
+	BGT loop
+
+	BX	LR
