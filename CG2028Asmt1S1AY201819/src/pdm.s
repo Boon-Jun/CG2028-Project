@@ -12,8 +12,9 @@ pdm:
 	MUL R3, R4 @consider word length 						0x00003413
 	ADD R0, R3  @apply offset 							0x00800003
 	MUL R2, R4 @offset for index(accounting for word length)			0x00002412
-	ADD R4, R0, R2 @mem loc for numerator						0x00804002
-	LDR R2, [R4] @load numerator into R2						0x04142000
+	//ADD R4, R0, R2 @mem loc for numerator						0x00804002
+	//LDR R2, [R4] @load numerator into R2						0x04142000
+	ADD R2, R0 @load numerator into R2						0x00822000
 	MOV R4, 0 @initialize sum to 0							0x03A04000
 loop:
 	LDR R3, [R0], 4									0x04903004
