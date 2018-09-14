@@ -17,7 +17,7 @@ pdm:
 	MOV R4, 0 @initialize sum to 0							0x03A04000
 loop:
 	LDR R3, [R0], 4									0x04903004
-	ADD R4, R3  @Calculating the denominator of the PD function			0x00244003
+	ADD R4, R3  @Calculating the denominator of the PD function			0x00844003
 	SUBS R1, 1									0x02911001
 	BGT loop									0xC8000010
 	MOVW R1, 10000
