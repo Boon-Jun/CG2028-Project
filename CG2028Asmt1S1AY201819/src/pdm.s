@@ -16,10 +16,10 @@ pdm:
 	LDR R2, [R4] @load numerator into R2						0x04142000
 	MOV R4, 0 @initialize sum to 0
 loop:
-	LDR R3, [R0], 4									0x04903004
+	LDR R3, [R0], 4									@0x04903004
 	ADD R4, R3  @Calculating the denominator of the PD function			0x00244003
-	SUBS R1, 1									0x02911001
-	BGT loop									0xC8000010
+	SUBS R1, 1									@0x02911001
+	BGT loop									@0xC8000010
 	MOVW R1, 10000
 	MUL R2, R1  @multiply numerator by 10000					0x00002112	
 	SDIV R0, R2, R4 @numerator/denominator						
